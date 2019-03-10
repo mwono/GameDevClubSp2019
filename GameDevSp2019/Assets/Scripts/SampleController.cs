@@ -5,19 +5,9 @@ using WASD;
 
 public class SampleController : Controller
 {
-    public override void Move(Vector2 Dist)
+    public override void MoveScheme()
     {
-        if (!isMoving)
-        {
-            isMoving = true;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Dist);
-            if (hit.collider != null)
-            {
-                SetNextNode(hit.collider.GetComponent<Nodes>());
-            }
-            transform.Translate(Dist * Time.deltaTime);
-            isMoving = false;
-        }
+        Move(GetDistance(Direction.up));
     }
 
     // Start is called before the first frame update
@@ -29,6 +19,6 @@ public class SampleController : Controller
     // Update is called once per frame
     void Update()
     {
-        Move(GetDistance(Direction.up));
+        MoveScheme();
     }
 }

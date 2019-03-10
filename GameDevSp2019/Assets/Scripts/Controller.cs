@@ -7,7 +7,6 @@ public abstract class Controller : MonoBehaviour
 {
     private Vector2[] Distances;
     private Nodes Current, Next;
-    public bool isMoving;
     // Start is called before the first frame update
     void Awake()
     {
@@ -59,5 +58,15 @@ public abstract class Controller : MonoBehaviour
         return new Vector2();
     }
 
-    public abstract void Move(Vector2 Dist);
+    public void Move(Vector2 Dist)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Dist);
+        if (hit.collider != null)
+        {
+            SetNextNode(hit.collider.GetComponent<Nodes>());
+        }
+        transform.Translate(Dist * Time.deltaTime);
+    }
+
+    public abstract void MoveScheme();
 }
