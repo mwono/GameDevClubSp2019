@@ -7,6 +7,9 @@ public abstract class Controller : MonoBehaviour
 {
     private Vector2[] Distances;
     private Nodes Current, Next;
+    protected bool CanMove;
+
+    public float speed;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,6 +20,7 @@ public abstract class Controller : MonoBehaviour
     {
         if(collision.name.Equals("Node"))
         {
+            CanMove = true;
             Nodes n = collision.GetComponent<Nodes>();
             Distances[0] = n.Director(Direction.up, Direction.up);
             Distances[1] = n.Director(Direction.left, Direction.left);
@@ -24,6 +28,11 @@ public abstract class Controller : MonoBehaviour
             Distances[3] = n.Director(Direction.right, Direction.right);
             Current = n;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CanMove = false;
     }
 
     public Nodes GetCurrentNode()
@@ -60,12 +69,15 @@ public abstract class Controller : MonoBehaviour
 
     public void Move(Vector2 Dist)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Dist);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Dist * 2);
         if (hit.collider != null)
         {
             SetNextNode(hit.collider.GetComponent<Nodes>());
         }
-        transform.Translate(Dist * Time.deltaTime);
+        if (Dist.magnitude != 0)
+        {
+            transform.Translate(Dist / Dist.magnitude * Time.deltaTime * speed);
+        }
     }
 
     public abstract void MoveScheme();
