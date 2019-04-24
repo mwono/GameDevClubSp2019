@@ -43,7 +43,7 @@ public class PlayerController : Controller
             dist = GetCurrentNode().transform.position - this.transform.position;
         } else if ((dist.magnitude == 0 && CanMove) || dist.magnitude == Mathf.Infinity)
         {
-            dist = new Vector2(0, 0);0
+            dist = new Vector2(0, 0);
         }
         Move(dist);
     }
