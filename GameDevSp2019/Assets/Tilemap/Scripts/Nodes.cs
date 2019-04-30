@@ -16,21 +16,25 @@ public class Nodes : MonoBehaviour
 
     private void Start()
     {
-        LayerMask layerMask = LayerMask.GetMask("Node");
+        LayerMask layerMask = LayerMask.GetMask("Node", "Wall");
         float castDist = Mathf.Infinity;
-        if (Physics2D.Raycast(transform.position, new Vector2(0, 1), castDist, layerMask).collider != null)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(0, 1), castDist, layerMask);
+        if (hit.collider != null && !hit.collider.name.Equals("CornFields"))
         {
             Up = true;
         }
-        if (Physics2D.Raycast(transform.position, new Vector2(0, -1), castDist, layerMask).collider != null)
+        hit = Physics2D.Raycast(transform.position, new Vector2(0, -1), castDist, layerMask);
+        if (hit.collider != null && !hit.collider.name.Equals("CornFields"))
         {
             Down = true;
         }
-        if (Physics2D.Raycast(transform.position, new Vector2(1, 0), castDist, layerMask).collider != null)
+        hit = Physics2D.Raycast(transform.position, new Vector2(1, 0), castDist, layerMask);
+        if (hit.collider != null && !hit.collider.name.Equals("CornFields"))
         {
             Right = true;
         }
-        if (Physics2D.Raycast(transform.position, new Vector2(-1, 0), castDist, layerMask).collider != null)
+        hit = Physics2D.Raycast(transform.position, new Vector2(-1, 0), castDist, layerMask);
+        if (hit.collider != null && !hit.collider.name.Equals("CornFields"))
         {
             Left = true;
         }
@@ -40,7 +44,6 @@ public class Nodes : MonoBehaviour
     {
         LayerMask layerMask = LayerMask.GetMask("Node");
         Vector2 returnVector = new Vector2(0, 0);
-        Vector2 inputVector = new Vector2(0, 0);
 
         if (v == Direction.up && Up)
         {
@@ -82,7 +85,6 @@ public class Nodes : MonoBehaviour
             raycastHit = Physics2D.Raycast(transform.position, new Vector2(-1,0), Mathf.Infinity, layerMask);
             returnVector = raycastHit.transform.position - transform.position;
         }
-        
         return returnVector;
     }
 }

@@ -14,7 +14,7 @@ public class Corn : Collectible
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = GameObject.Find("UI").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame

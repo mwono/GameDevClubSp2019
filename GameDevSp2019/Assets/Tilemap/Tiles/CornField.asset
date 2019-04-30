@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Straight
+  m_Name: CornField
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: ae6d21c366301d5428a696f219cb9bf7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c6cc6af49f9d3bb4780030b0d1eb5c58, type: 3}
+  m_Color: {r: 0.25141275, g: 0.6132076, b: 0.118592024, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 1
+  m_ColliderType: 2

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Scythe : Collectible
 {
-    public playerController pc;
+    public Invincibility pc;
     
     public override void Collect()
     {
-        // pc.becomeInvincible();
+        pc.setInvincible();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        pc = GameObject.Find("Player").GetComponent<Invincibility>();
     }
 
     // Update is called once per frame

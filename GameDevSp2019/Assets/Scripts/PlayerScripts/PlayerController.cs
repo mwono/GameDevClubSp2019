@@ -6,39 +6,49 @@ using WASD;
 public class PlayerController : Controller
 {
     Direction d;
-    // CanMove = true;
-    public override void MoveScheme()
+    private Vector2 dist;
+    public Transform sprite;
+
+    protected override void MoveScheme()
     {
         if (Input.GetAxis("Vertical") > 0 && CanMove)
         {
             d = Direction.up;
+            sprite.rotation = Quaternion.AngleAxis(90, Vector3.forward);
         } else if (Input.GetAxis("Vertical") < 0 && CanMove)
         {
             d = Direction.down;
+            sprite.rotation = Quaternion.AngleAxis(-90, Vector3.forward);
         } else if (Input.GetAxis("Horizontal") > 0 && CanMove)
         {
             d = Direction.right;
+            sprite.rotation = Quaternion.AngleAxis(0, Vector3.forward);
         } else if (Input.GetAxis("Horizontal") < 0 && CanMove)
         {
             d = Direction.left;
+            sprite.rotation = Quaternion.AngleAxis(180, Vector3.forward);
         }
         else if (Input.GetAxis("Vertical") > 0 && !CanMove && d == Direction.down)
         {
             d = Direction.up;
+            sprite.rotation = Quaternion.AngleAxis(90, Vector3.forward);
         }
         else if (Input.GetAxis("Vertical") < 0 && !CanMove && d == Direction.up)
         {
             d = Direction.down;
+            sprite.rotation = Quaternion.AngleAxis(-90, Vector3.forward);
         }
         else if (Input.GetAxis("Horizontal") > 0 && !CanMove && d == Direction.left)
         {
             d = Direction.right;
+            sprite.rotation = Quaternion.AngleAxis(0, Vector3.forward);
         }
         else if (Input.GetAxis("Horizontal") < 0 && !CanMove && d == Direction.right)
         {
             d = Direction.left;
+            sprite.rotation = Quaternion.AngleAxis(180, Vector3.forward);
         }
-        Vector2 dist = GetDistance(d);
+        dist = GetDistance(d);
         if (dist.magnitude == 0 && !CanMove) {
             dist = GetCurrentNode().transform.position - this.transform.position;
         } else if ((dist.magnitude == 0 && CanMove) || dist.magnitude == Mathf.Infinity)
@@ -49,7 +59,7 @@ public class PlayerController : Controller
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         MoveScheme();
     }

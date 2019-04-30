@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4603715458158491857}
   - component: {fileID: 6311342783221222345}
   - component: {fileID: 3105206701248661705}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Melon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,12 +69,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 861a1c7396e4c794f9cf6bd5e2ac581a, type: 3}
+  m_Sprite: {fileID: 21300004, guid: cb99212067c7e534fa93bba85bb095e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.15, y: 0.12}
+  m_Size: {x: 0.49, y: 0.38}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6389384477478878644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd964a511116adb4b8a17c38b785d9b7, type: 3}
+  m_Script: {fileID: 11500000, guid: f5344ca170cf3334abe5fa0595820b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}

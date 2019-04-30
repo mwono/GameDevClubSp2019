@@ -6,11 +6,12 @@ public abstract class Collectible : MonoBehaviour
 {
     public abstract void Collect();
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name.Equals("player"))
+        if(other.name.Equals("Player"))
         {
-            updateScore();
+            Collect();
+            this.gameObject.SetActive(false);
         }
     }
 
