@@ -112,6 +112,163 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &103594573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103594575}
+  - component: {fileID: 103594574}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &103594574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103594573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fab248e17ce0dc4f9d26cbf89daf27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m: {fileID: 335367780}
+--- !u!4 &103594575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103594573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 304.6203, y: 143.91956, z: 0.7625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &143641705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143641706}
+  - component: {fileID: 143641709}
+  - component: {fileID: 143641708}
+  - component: {fileID: 143641707}
+  - component: {fileID: 143641710}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &143641706
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143641705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 520014748}
+  m_Father: {fileID: 967578934}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &143641707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143641705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &143641708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143641705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &143641709
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143641705}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &143641710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143641705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f3df0b54d67b048b1194510f1f91e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt: {fileID: 520014749}
 --- !u!1 &335367779
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +396,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &520014747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520014748}
+  - component: {fileID: 520014750}
+  - component: {fileID: 520014749}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &520014748
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520014747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 143641706}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 267.8, y: 92}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &520014749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520014747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.90196085, g: 0.81568635, b: 0.003921569, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 3
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Hold Space to speed up
+
+    Or Escape to Skip'
+--- !u!222 &520014750
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520014747}
+  m_CullTransparentMesh: 0
 --- !u!1 &576079164
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +569,7 @@ RectTransform:
   m_Children:
   - {fileID: 1182753073}
   m_Father: {fileID: 967578934}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -433,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8685a648670a2b34ea40f97b37e81693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starwars: {fileID: 335367780}
 --- !u!4 &967578934
 Transform:
   m_ObjectHideFlags: 0
@@ -444,6 +683,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 143641706}
   - {fileID: 576079168}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -474,7 +714,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182753072}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0, z: -27}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 576079168}
@@ -482,7 +722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -913}
+  m_AnchoredPosition: {x: 0, y: -907}
   m_SizeDelta: {x: 500, y: 2100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182753074
@@ -535,24 +775,25 @@ MonoBehaviour:
     wife.\r\n\r\nWhere did it all go wrong? Before her things were going so well.
     All throughout high school and college, you were top of the class grades, star
     of the football team, and all that good jazz.\r\n\r\nIf you had to pin a point,
-    it would have to be her. Your chemistry at that party was great. The red dress
-    she wore looked great, and it looked even better on the floor. One night became
-    a week, then a month, then a year.\r\n\r\nBefore you knew it, you\u2019re walking
-    down the aisle, thinking about how nice her white dress would look on the floor.\r\n\r\nMarried
+    it would have to be her. Your chemistry at that party was great. She was so cute,
+    so funny, so beautiful. So, you have to ask yourself again: how did it all end
+    up like this?\n\nReally, she just wasn't as nice as you thought. She was perfect,
+    but you weren't. Therefore, she had to fix you. Make you the kind of perfect seh
+    could spend the rest of your life with.\n\nGuess what?\n\nShe succeeded.\n\r\nMarried
     life wasn\u2019t as nice as you hoped. It started well, but the stress of adult
-    living got to you. Endless taxes, the shitty in-laws, and no time to yourself.\r\nAnd
+    living got to you. Endless taxes, the crappy in-laws, and no time to yourself.\r\nAnd
     now you find yourself here, lying in your car parked on the side of the highway
-    in the middle of bumfuck nowhere, wondering how you could have let it go so wrong.\r\n\r\nNo
-    one understands you. They don\u2019t understand the struggle you lived through.
-    If they understood, then they wouldn\u2019t have shut the door in your face. If
-    they understood, you\u2019d be the one with custody, not her.\r\n\r\nIf only they
-    understood.\r\n\r\nYou\u2019re out of gas and have no money. There\u2019s food
-    nearby, but how could you take it? That stuff was the result of months of hard
-    work. A farmer\u2019s life wasn\u2019t easy. Early morning, late nights working
+    in the middle of nowhere, wondering once again how you could have let it go so
+    wrong.\r\n\r\nNo one understands you. They don\u2019t understand the struggle
+    you lived through. If they understood, then they wouldn\u2019t have shut the door
+    in your face. If they understood, you\u2019d be the one with custody, not her.\r\n\r\nIf
+    only they understood.\r\n\r\nYou\u2019re out of gas and have no money. There\u2019s
+    food nearby, but how could you take it? That stuff was the result of months of
+    hard work. A farmer\u2019s life wasn\u2019t easy. Early morning, late nights working
     under the sweltering sun. They\u2019re an underappreciated lot.\r\n\r\nCourse,
     you weren\u2019t thinking of that. Nope. Not at all. Why? Cause you\u2019re a
-    complete and utter jackass.\r\n\r\nAll you could think about was how terrible
-    the farmers were. Born with a silver spoon in their mouth, they didn\u2019t understand
+    complete and utter jerk.\r\n\r\nAll you could think about was how terrible the
+    farmers were. Born with a silver spoon in their mouth, they didn\u2019t understand
     the struggle of living 9-5 in the suburban hellhole.\r\n\r\nGetting up from your
     lying position, you exited the car and approached the fields\u2026\r\n"
 --- !u!222 &1182753075

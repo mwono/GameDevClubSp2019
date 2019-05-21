@@ -22,7 +22,7 @@ public class Invincibility : MonoBehaviour
     public void setInvincible()
     {
         isInvincible = true;
-        Invoke("resetInvincible", invincibleTime);
+        Invoke("resetInvulnerability", invincibleTime);
     }
     public bool getInvincible()
     {

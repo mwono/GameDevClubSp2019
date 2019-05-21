@@ -51,7 +51,7 @@ public class PrevEnemy : Controller
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
@@ -71,7 +71,7 @@ public class PrevEnemy : Controller
 
     IEnumerator Sleep()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         MoveScheme();
         awake = true;
     }
