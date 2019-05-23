@@ -5,45 +5,44 @@ using WASD;
 
 public class PlayerController : Controller
 {
-    Direction d;
+    Direction d, prevd;
     private Vector2 dist;
-    public Transform sprite;
 
     protected override void MoveScheme()
     {
-        if (Input.GetAxis("Vertical") > 0 && CanMove)
+        if (Input.GetAxis("Vertical") > 0 && CanMove && GetCurrentNode().Up)
         {
             d = Direction.up;
             sprite.rotation = Quaternion.AngleAxis(90, Vector3.forward);
-        } else if (Input.GetAxis("Vertical") < 0 && CanMove)
+        } else if (Input.GetAxis("Vertical") < 0 && CanMove && GetCurrentNode().Down)
         {
             d = Direction.down;
             sprite.rotation = Quaternion.AngleAxis(-90, Vector3.forward);
-        } else if (Input.GetAxis("Horizontal") > 0 && CanMove)
+        } else if (Input.GetAxis("Horizontal") > 0 && CanMove && GetCurrentNode().Right)
         {
             d = Direction.right;
             sprite.rotation = Quaternion.AngleAxis(0, Vector3.forward);
-        } else if (Input.GetAxis("Horizontal") < 0 && CanMove)
+        } else if (Input.GetAxis("Horizontal") < 0 && CanMove && GetCurrentNode().Left)
         {
             d = Direction.left;
             sprite.rotation = Quaternion.AngleAxis(180, Vector3.forward);
         }
-        else if (Input.GetAxis("Vertical") > 0 && !CanMove && d == Direction.down)
+        else if (Input.GetAxis("Vertical") > 0 && !CanMove && d == Direction.down && GetCurrentNode().Up)
         {
             d = Direction.up;
             sprite.rotation = Quaternion.AngleAxis(90, Vector3.forward);
         }
-        else if (Input.GetAxis("Vertical") < 0 && !CanMove && d == Direction.up)
+        else if (Input.GetAxis("Vertical") < 0 && !CanMove && d == Direction.up && GetCurrentNode().Down)
         {
             d = Direction.down;
             sprite.rotation = Quaternion.AngleAxis(-90, Vector3.forward);
         }
-        else if (Input.GetAxis("Horizontal") > 0 && !CanMove && d == Direction.left)
+        else if (Input.GetAxis("Horizontal") > 0 && !CanMove && d == Direction.left && GetCurrentNode().Right)
         {
             d = Direction.right;
             sprite.rotation = Quaternion.AngleAxis(0, Vector3.forward);
         }
-        else if (Input.GetAxis("Horizontal") < 0 && !CanMove && d == Direction.right)
+        else if (Input.GetAxis("Horizontal") < 0 && !CanMove && d == Direction.right && GetCurrentNode().Left)
         {
             d = Direction.left;
             sprite.rotation = Quaternion.AngleAxis(180, Vector3.forward);

@@ -5,10 +5,13 @@ using UnityEngine;
 public class Melon : Collectible
 {
     public ScoreManager manager;
+    MelonSpawner ms;
 
     public override void Collect()
     {
-        manager.updateScore(100);
+        manager.updateScore(20);
+        ms.CollectedMelon();
+        ms = null;
     }
 
     // Start is called before the first frame update
@@ -17,9 +20,16 @@ public class Melon : Collectible
         manager = GameObject.Find("UI").GetComponent<ScoreManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (ms != null)
+        {
+            transform.position = ms.transform.position;
+        }
+    }
+
+    public void SetSpawner(MelonSpawner spawner)
+    {
+        ms = spawner;
     }
 }

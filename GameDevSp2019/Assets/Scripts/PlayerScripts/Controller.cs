@@ -5,9 +5,12 @@ using WASD;
 
 public abstract class Controller : MonoBehaviour
 {
+    public GameObject menu, spawn;
     private Vector2[] Distances;
     private Nodes Current, Next;
     protected bool CanMove = true;
+
+    public Transform sprite;
 
     public float speed;
     // Start is called before the first frame update
@@ -33,9 +36,10 @@ public abstract class Controller : MonoBehaviour
         {
             if (!collision.GetComponent<Invincibility>().getInvincible())
             {
-                Application.Quit();
+                menu.SetActive(true);
             } else
             {
+                this.gameObject.transform.position = spawn.transform.position;
                 this.gameObject.SetActive(false);
             }
                 
@@ -103,17 +107,6 @@ public abstract class Controller : MonoBehaviour
         
         if (Dist.magnitude > 0)
         {
-            /*
-            if (Dist.x != 0 && Dist.y != 0)
-            {
-                if (Mathf.Abs(Dist.x) >= Mathf.Abs(Dist.y))
-                {
-                    Dist.y = 0;
-                } else if (Mathf.Abs(Dist.y) >= Mathf.Abs(Dist.x))
-                {
-                    Dist.x = 0;
-                }
-            }*/
             LayerMask layerMask = LayerMask.GetMask("Node", "Wall");
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Dist * Mathf.Infinity, layerMask);
             if (hit.collider != null && !hit.collider.name.Equals("CornFields"))

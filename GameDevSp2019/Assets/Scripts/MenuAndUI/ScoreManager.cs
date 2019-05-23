@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
+    public GameObject c;
     public int s;
-    int cornCollected;
+    int cornCollected, totalCorn;
     static float timescaler = 1f;
     public Text sc;
     public GameObject menu;
@@ -27,13 +28,14 @@ public class ScoreManager : MonoBehaviour
         {
             Object.Destroy(this.gameObject);
         }
+        totalCorn = c.GetComponentsInChildren<Corn>().Length;
     }
 
     // Update is called once per frame
     void Update()
     {
         sc.text = s.ToString();
-        if (cornCollected == 74)
+        if (cornCollected == totalCorn)
         {
             menu.SetActive(true);
         }

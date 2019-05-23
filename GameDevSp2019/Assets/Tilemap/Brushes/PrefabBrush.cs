@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-/*
+
 namespace UnityEditor
 {
     [CreateAssetMenu(fileName = "Prefab brush", menuName = "Brushes/Prefab brush")]
@@ -40,7 +40,7 @@ namespace UnityEditor
                 Undo.MoveGameObjectToScene(instance, brushTarget.scene, "Paint Prefabs");
                 Undo.RegisterCreatedObjectUndo((Object)instance, "Paint Prefabs");
                 instance.transform.SetParent(brushTarget.transform);//-1.75, 3
-                instance.transform.position = grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3Int(position.x, position.y, m_Z) + new Vector3(.5f, .5f, .5f))) + new Vector3(-2.25f, 2.5f);//Was .5 all across
+                instance.transform.position = grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3Int(position.x, position.y, m_Z) + new Vector3(.5f, .5f, .5f))) + new Vector3(-.5f, .5f);//Was .5 all across
             }
         }
         //Offsetting by x = 2.25, y = -2.5
@@ -108,4 +108,3 @@ namespace UnityEditor
         }
     }
 }
-*/
