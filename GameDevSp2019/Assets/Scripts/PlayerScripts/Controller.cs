@@ -21,8 +21,7 @@ public abstract class Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name.Equals("Node"))
-        {
+        if(collision.name.Equals("Node")) {
             CanMove = true;
             Nodes n = collision.GetComponent<Nodes>();
             Distances = new Vector2[4];
@@ -31,24 +30,23 @@ public abstract class Controller : MonoBehaviour
             Distances[2] = n.Director(Direction.down, Direction.down);
             Distances[3] = n.Director(Direction.right, Direction.right);
             Current = n;
-            MoveScheme();
-        } else if (collision.name.Equals("Player"))
-        {
+        } else if (collision.name.Equals("Player")) {
             if (!collision.GetComponent<Invincibility>().getInvincible())
             {
                 menu.SetActive(true);
             } else
             {
-                this.gameObject.transform.position = spawn.transform.position;
-                this.gameObject.SetActive(false);
+                this.gameObject.GetComponent<PrevEnemy>().ToSleep();
             }
-                
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        CanMove = false;
+        if (collision.name.Equals("Node"))
+        {
+            CanMove = false;
+        }
     }
 
     public Nodes GetCurrentNode()
@@ -108,7 +106,8 @@ public abstract class Controller : MonoBehaviour
         if (Dist.magnitude > 0)
         {
             LayerMask layerMask = LayerMask.GetMask("Node", "Wall");
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Dist * Mathf.Infinity, layerMask);
+            
+            RaycastHit2D hit = Physics2D.CircleCast(this.transform.position, .5f, Dist, Dist.magnitude * Mathf.Infinity, layerMask);//Physics2D.Raycast(transform.position, Dist, layerMask);
             if (hit.collider != null && !hit.collider.name.Equals("CornFields"))
             {
                 SetNextNode(hit.collider.GetComponent<Nodes>());

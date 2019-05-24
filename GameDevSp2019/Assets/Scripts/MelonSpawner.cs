@@ -5,7 +5,7 @@ using UnityEngine;
 public class MelonSpawner : MonoBehaviour
 {
     public MelonPool mp;
-    bool active;
+    bool spawned, active;
 
     private void Start()
     {
@@ -13,28 +13,27 @@ public class MelonSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        float r = Random.Range(0, 1);
-        if (r < .15f && (mp.activeRottens < mp.totalRottens) && active)
+        int r = Random.Range(0, 100);
+        if (r < 15f && (mp.activeRottens < mp.totalRottens) && active && !spawned)
         {
             GameObject rottenMelon = mp.GetRottenMelon();
             if (rottenMelon != null) {
                 rottenMelon.transform.position = this.transform.position;
                 rottenMelon.GetComponent<RottenMelon>().SetSpawner(this);
                 mp.activeRottens++;
-                StartCoroutine("timer");
+                spawned = true;
             }
-        } else if (r < .35f && (mp.activeMelons < mp.totalMelons) && active) {
+        } else if (r < 35f && (mp.activeMelons < mp.totalMelons) && active && !spawned) {
             GameObject melon = mp.GetMelon();
             if (melon != null) {
                 melon.transform.position = this.transform.position;
                 melon.GetComponent<Melon>().SetSpawner(this);
                 mp.activeMelons++;
-                StartCoroutine("timer");
+                spawned = true;
             }
-        } else
-        {
+        } else if (active && !spawned) {
             StartCoroutine("timer");
         }
     }
@@ -42,17 +41,22 @@ public class MelonSpawner : MonoBehaviour
     IEnumerator timer()
     {
         active = false;
-        yield return new WaitForSeconds(10);
+        int r = Random.Range(10, 30);
+        yield return new WaitForSeconds(r);
         active = true;
     }
 
     public void CollectedMelon()
     {
         mp.activeMelons--;
+        spawned = false;
+        StartCoroutine("timer");
     }
 
     public void CollectedRotten()
     {
         mp.activeRottens--;
+        spawned = false;
+        StartCoroutine("timer");
     }
 }

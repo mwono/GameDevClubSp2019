@@ -8,14 +8,15 @@ public class PrevEnemy : Controller
     Direction d, prevd = Direction.up;
     public PlayerController player;
     bool awake = false;
-    Vector2 dist;
+    public int id;
+
 
     public GameObject pt1, pt2;
     bool toPt1, toPt2, spawning;
 
     protected override void MoveScheme()
     {
-        transform.Translate(new Vector2(0, 0));
+        /*
         Vector2[] possibleDistances = GetNeighbors();
         float minDist = float.MaxValue;
         int dir = -1;
@@ -37,17 +38,32 @@ public class PrevEnemy : Controller
                 dir = i;
                 //Debug.Log(dir);
             }
+        }*/
+        Vector2 dist;
+        if (CanMove)
+        {
+            int r = Random.Range(0, 100);//directions old order: 1, 2, 3, 4, based on int dir
+            if (r < 25f && GetDistance(Direction.up).magnitude != 0)
+            {
+                d = Direction.up;
+                sprite.rotation = Quaternion.AngleAxis(90, Vector3.forward);
+            }
+            else if (r < 50f && GetDistance(Direction.left).magnitude != 0)
+            {
+                d = Direction.left;
+                sprite.rotation = Quaternion.AngleAxis(180, Vector3.forward);
+            }
+            else if (r < 75f && GetDistance(Direction.down).magnitude != 0)
+            {
+                d = Direction.down;
+                sprite.rotation = Quaternion.AngleAxis(-90, Vector3.forward);
+            }
+            else if (r <= 100 && GetDistance(Direction.right).magnitude != 0)
+            {
+                d = Direction.right;
+                sprite.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+            }
         }
-        if (dir == 0)
-            d = Direction.up;
-        else if (dir == 1)
-            d = Direction.left;
-        else if (dir == 2)
-            d = Direction.down;
-        else if (dir == 3)
-            d = Direction.right;
-        else
-            d = prevd;
         dist = GetDistance(d);
         prevd = d;
         if ((dist.magnitude == 0) || dist.magnitude == Mathf.Infinity)
@@ -56,33 +72,38 @@ public class PrevEnemy : Controller
         }
         Move(dist);
     }
-
+    
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        toPt1 = true;
+        gameObject.GetComponentInChildren<Animator>().SetInteger("Farmer", id);
+        speed = speed + GameObject.Find("UI").GetComponent<ScoreManager>().GetSpeedMod();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!awake)
+        if (!toPt1 && !toPt2)
         {
+            spawning = false;
+        }
+        if (!awake) {
             StartCoroutine("Sleep");
-        } else if (spawning)
-        {
+        } else if (spawning) {
             SpawnRoutine();
         } else {
             MoveScheme();
-            
         }
     }
-
     IEnumerator Sleep()
     {
-        yield return new WaitForSeconds(2);
+        sprite.GetComponent<SpriteRenderer>().enabled = false;
+        int r = Random.Range(1, 4);
+        yield return new WaitForSeconds(r + id);
+        toPt1 = true;
         spawning = true;
         awake = true;
+        sprite.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void SpawnRoutine()
@@ -90,7 +111,7 @@ public class PrevEnemy : Controller
         if (toPt1)
         {
             this.transform.position = Vector2.MoveTowards(transform.position, pt1.transform.position, speed * Time.deltaTime);
-            if (transform.position == pt1.transform.position)
+            if ((transform.position.x == pt1.transform.position.x) && (transform.position.y == pt1.transform.position.y))
             {
                 toPt1 = false;
                 toPt2 = true;
@@ -98,20 +119,21 @@ public class PrevEnemy : Controller
         } else if (toPt2)
         {
             this.transform.position = Vector2.MoveTowards(transform.position, pt2.transform.position, speed * Time.deltaTime);
-            if (transform.position == pt2.transform.position)
+            if ((transform.position.x == pt2.transform.position.x) && (transform.position.y == pt2.transform.position.y))
             {
                 toPt2 = false;
             }
-        }
-        if (!toPt1 && !toPt2)
-        {
-            toPt1 = true;
-            spawning = false;
         }
     }
 
     public void SetSpawningToTrue()
     {
         spawning = true;
+    }
+
+    public void ToSleep()
+    {
+        this.gameObject.transform.position = spawn.transform.position;
+        awake = false;
     }
 }

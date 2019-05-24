@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public GameObject c;
-    public int s;
+    int s;
     int cornCollected, totalCorn;
-    static float timescaler = 1f;
+    static float FarmerSpeedMod = 1f;
     public Text sc;
     public GameObject menu;
     public Options op;
@@ -19,9 +19,11 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        Time.timeScale = timescaler;
+        Time.timeScale = 1;
+        op = GameObject.Find("OptionsManager").GetComponent<Options>();
         if (scoreManager == null)
         {
+            GameObject.Find("UI").GetComponent<ScoreManager>().updateScore(-100);
             scoreManager = this;
         }
         else
@@ -39,6 +41,13 @@ public class ScoreManager : MonoBehaviour
         {
             menu.SetActive(true);
         }
+        if (Input.GetAxis("Pause") > 0 && !menu.activeInHierarchy)
+        {
+            menu.SetActive(true);
+        } else if (Input.GetAxis("Pause") > 0 && menu.activeInHierarchy)
+        {
+            menu.SetActive(false);
+        }
     }
 
     public void updateScore(int score)
@@ -50,9 +59,9 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public float GetTimeScale()
+    public float GetSpeedMod()
     {
-        return timescaler;
+        return FarmerSpeedMod;
     }
 
     public void Quit()
@@ -65,8 +74,13 @@ public class ScoreManager : MonoBehaviour
         menu.SetActive(false);
         cornCollected = 0;
         if (op.willSpeedUp) {
-            timescaler += .5f;
+            FarmerSpeedMod += .05f;
         }
         SceneManager.LoadScene("Level");
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene("Title");
     }
 }

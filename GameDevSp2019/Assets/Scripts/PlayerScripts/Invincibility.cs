@@ -7,7 +7,7 @@ public class Invincibility : MonoBehaviour
 {
     public float invincibleTime = 3.0f;
     bool isInvincible;
-    bool alive = true;
+    bool alive = true, flashing;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,10 @@ public class Invincibility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
+        if (isInvincible && !flashing)
+        {
+            StartCoroutine("Flash");
+        }
     }
     public void setInvincible()
     {
@@ -32,6 +35,16 @@ public class Invincibility : MonoBehaviour
     {
         isInvincible = false;
     }
+
+    IEnumerator Flash()
+    {
+        flashing = true;
+        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(.05f);
+        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        flashing = false;
+    }
+
     public void damaged()
     {
         if (!isInvincible)
