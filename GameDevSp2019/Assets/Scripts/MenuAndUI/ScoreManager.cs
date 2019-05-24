@@ -81,6 +81,8 @@ public class ScoreManager : MonoBehaviour
 
     public void QuitToMenu()
     {
+        s = 0;
+        menu.SetActive(false);
         SceneManager.LoadScene("Title");
     }
 }
